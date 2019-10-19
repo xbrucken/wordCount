@@ -31,7 +31,7 @@ typedef double db;
 typedef vector<int> vi;
 typedef pair<int, int> pii;
 const int inf=0x3f3f3f3f;
-void intput ()//huan
+void input ()//huan
 {
 	
 }
@@ -56,7 +56,7 @@ bool is_word(string )//zou
 	
 }
 
-sting lowcase(string )//wang
+string lowcase(string )//wang
 {
 	
 }
