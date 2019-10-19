@@ -65,9 +65,23 @@ int count_word(string )//wu
 	
 }
 
-bool is_word(string )//zou
+bool is_word(string a)//zou
 {
-	
+	int len=a.length();
+	int i;
+	int k=0;//统计开头连续的字母个数
+	if(len<4) return false; //字符数组长度不足4则不是单词 
+	for(i=0;i<len;i++)
+	{
+		if(a[i]>=97&&a[i]<=122) k++; //是字母则+1 
+		if(i==3)
+		{
+			if(k<4)
+				return false; //已经统计了4个但没有4个字母则报错
+			else break;
+		}
+	}
+	return true;
 }
 
 string lowcase(string )//wang
