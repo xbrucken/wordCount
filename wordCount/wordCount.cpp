@@ -43,7 +43,14 @@ int count_characters(string )//lin
 
 int count_line(string )//hu
 {
-	
+   int len = s.length();
+   int num=1;
+   for(int j=0;j<len;j++){
+   	if(s[j]=='\n'){
+   		num++;
+   	}
+   }
+   return num;
 }
 
 int count_word(string )//wu
