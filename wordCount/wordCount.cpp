@@ -31,6 +31,13 @@ typedef double db;
 typedef vector<int> vi;
 typedef pair<int, int> pii;
 const int inf=0x3f3f3f3f;
+map<string,int>mapp; 
+struct po
+{
+	string name;
+	int count;
+}p[1000000];
+int cc=0;
 void input ()//huan
 {
 	
@@ -70,7 +77,144 @@ string lowcase(string )//wang
 
 int count_phrase(int m,string )//zhang
 {
-	
+	//	de(s);
+//	cout<<s.size()<<endl;
+	int c=0;//空格个数
+	string tp=""; 
+	string ans="";
+	for(int i=0;i<s.size();i++)
+	{
+		if((s[i]>='a'&&s[i]<='z')||(s[i]>='A'&&s[i]<='Z')||(s[i]>='0'&&s[i]<='9'))
+		{
+			tp+=s[i];
+		}
+	//	de(tp);
+		if(s[i]==' '||i==s.size()-1)
+		{
+			if(c==m-1)
+			{
+				string low=lowcase(tp);
+				bool flag=is_word(low);
+				if(flag)
+				{
+					ans+=low;
+					mapp[ans]++;
+					//de(ans);
+					if(mapp[ans]==1)
+					{
+						p[cc].name=ans;
+						p[cc++].count=1;
+					}
+					else
+					{
+						for(int j=0;j<cc;j++)
+						{
+							if(p[j].name==ans)
+							{
+								p[j].count++;
+								break;
+							}
+						}
+					}
+					string tt;
+					int f=0;
+					for(int j=0;j<sz(ans);j++)
+					{
+						if(ans[j]==' ')
+						{
+							f=j;
+							break;
+						}
+					}	
+				//	de(f);
+					for(int j=f+1;j<sz(ans);j++)
+					{
+						tt+=ans[j];
+						//de(ans[j]);
+					}
+				//	de(tt);
+					ans=tt;
+					if(s[i]==' ')
+					{
+						ans+=' ';
+					} 
+					tp="";
+				}
+				else
+				{
+					ans="";
+					tp="";
+					c=0;
+					
+				}
+			}
+			else
+			{
+				string low=lowcase(tp);
+				bool flag=is_word(low);
+				if(flag)
+				{
+					ans+=low;
+					ans+=' ';
+					c++;
+					tp="";
+				}
+				else
+				{
+					ans="";
+					tp="";
+					c=0;
+				}
+			}
+		
+		}
+		else if(s[i]!=' '&&!(s[i]>='a'&&s[i]<='z')&&!(s[i]>='A'&&s[i]<='Z')&&!(s[i]>='0'&&s[i]<='9'))
+		{
+			de(c);
+			if(c==m-1)
+			{
+				string low=lowcase(tp);
+				bool flag=is_word(low);
+				de(flag);
+				if(flag)
+				{
+					ans+=low;
+					mapp[ans]++;
+					if(mapp[ans]==1)
+					{
+						p[cc].name=ans;
+						p[cc++].count=1;
+					}
+					else
+					{
+						for(int j=0;j<cc;j++)
+						{
+							if(p[j].name==ans)
+							{
+								p[j].count++;
+								break;
+							}
+						}
+					}
+					ans="";
+					tp="";
+					c=0;
+				}
+				else
+				{
+					ans="";
+					tp="";
+					c=0;
+				}
+			}
+			else
+			{
+				ans="";
+				tp="";
+				c=0;
+			}
+		}
+	}
 }
 
 void output()//ye
