@@ -77,9 +77,10 @@ int main()//wen
 } 
 
 
-bool cmp()//sort qiu
+bool cmp(int a,int b)//sort qiu
 {
-	
+	if(rank[a]>rank[b])return a>b;
+	else if(rank[a]==rank[b])return word[a]<word[b];
 }
 
 
