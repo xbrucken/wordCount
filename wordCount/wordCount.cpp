@@ -233,6 +233,11 @@ int count_phrase(int m,string )//zhang
 
 void output()//ye
 {
+    out_file<<"characters:"<<count_characters(s)<<endl;
+    out_file<<"words:"<<count_word(s)<<endl;
+    out_file<<"lines:"<<count_line(s)<<endl;
+    for(int i=0;i<cc;i++)
+    ofs<<"<"<<p[i].name<<">"<<": "<<p[i].count<<endl;
 	
 }
 
